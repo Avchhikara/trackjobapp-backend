@@ -1,0 +1,1 @@
+insert into applications (name, company_name, applied_on, stage) values ('Soft. Eng', 'MS', '2020-01-10', 'applied');
