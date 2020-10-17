@@ -7,10 +7,7 @@ import com.trackjobapp.TrackJobApp.service.IApplicationService;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +24,7 @@ public class Controller {
         return "<h1>Server is working</h1>";
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/entries")
     public String showVal() {
         List<Application> applications = applicationService.getAll();
@@ -34,6 +32,7 @@ public class Controller {
         return gson.toJson(applications);
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/create")
     public String createEntry(@RequestBody Application application) {
         var isSaved = applicationService.save(application);
